@@ -85,6 +85,37 @@ public class LinkedList {
         }
     }
     
+    public void showNthLast(int index) //nth From Last
+    {
+        Node node=head;
+        int length=0;
+        while(node!=null)
+        {
+            node=node.next;
+            length++;
+        }
+        if(length<index)
+            return;
+        
+        node=head;
+        
+        for(int i=0;i<length-index;i++)
+            node=node.next;
+            
+        System.out.println(node.data);
+    }
+    
+    
+    public void showNth(int index) //nth 
+    {
+        Node node=head;
+       
+        for(int i=1;i<index;i++)
+            node=node.next;
+            
+        System.out.println(node.data);
+    }
+    
     public static void main(String[] args) {
         LinkedList l=new LinkedList();
         l.insert(5);
@@ -100,5 +131,9 @@ public class LinkedList {
         l.show();
         
         l.showMid();
+         l.show();
+        l.showNthLast(3);
+        
+        l.showNth(5);
     }
 }
