@@ -16,11 +16,11 @@ class GFG
     
     static BST GetNewNode(int data)
     {
-        BST newNode = new BST();
-        newNode.data=data;
-        newNode.left=newNode.right=null;
+        BST node = new BST();
+        node.data=data;
+        node.left=node.right=null;
         
-        return newNode;
+        return node;
     }
     /*
     Instead of writing GetNewNode we also write
