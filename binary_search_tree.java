@@ -95,7 +95,7 @@ class GFG
                                         {
                                             BST temp=FindMini(root.right);
                                             root.data=temp.data;
-                                            root.right=Delete(root.right,temp.data);
+                                            root.right=Delete(r oot.right,temp.data);
                                         }
         return root;
     }
@@ -171,6 +171,20 @@ class GFG
             
         return root.data;
     }
+	public static int Height(BST root)
+	{
+		if(root==null)
+			return 0;
+		else
+		{
+			int l=Height(root.left);
+			int r=Height(root.right);
+			if(l>r)
+				return l+1;
+			else 
+				return r+1;
+		}
+	}
 	public static void main (String[] args) {
 	    Scanner sc=new Scanner(System.in);
 	   
@@ -196,7 +210,7 @@ class GFG
 		    System.out.println("Deleted Successfully !");
 		   else System.out.println("Not Deleted !");
 		   
-		root=Delete(root,60);
+		root=Delete(root,x);
 	
     	System.out.print("\nInorder   : "); Inorder(root);
 		System.out.print("\nPreorder  : ");Preorder(root);
@@ -205,6 +219,7 @@ class GFG
 		
 	    System.out.print("\n\nMax Element : "+FindMax(root));
 		System.out.print("\nMin Element : "+FindMin(root));
+		System.out.print("\nHeight : "+Height(root));
 		
 		
 	}
