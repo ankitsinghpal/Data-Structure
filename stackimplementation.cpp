@@ -4,7 +4,7 @@ using namespace std;
 int top=-1;
 void push(int arr[], int x, int n)
 {
-    if(top==n-1)
+    if(top==n-1)	//full
     {
         cout<<"\nstack ful"<<top;
     }
