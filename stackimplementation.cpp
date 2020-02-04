@@ -2,7 +2,7 @@
 using namespace std;
 
 int top=-1;
-void push(int arr[], int n, int x)
+void push(int arr[], int x, int n)
 {
     if(top==n-1)
     {
