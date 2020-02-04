@@ -17,14 +17,14 @@ class StackInJava {
 		s.pop();
 		System.out.println(s.peek());  //400
 		
-		System.out.println(s.size()); //4 = size-1 ie. indexing start from 0
+		System.out.println(s.size()); //4 = size
 		
 		
 		System.out.println(s.empty()); //false
 		
 		System.out.println(s.isEmpty()); //false
 		
-		System.out.println(s.search(500)); // -1
+		System.out.println(s.search(400)); // 1 //// [4 3 2 1] if not present return -1
 		
 		//s.removeAllElements();
 		//s.clear();
@@ -34,22 +34,21 @@ class StackInJava {
 		
 		System.out.println(s.contains(200));
 		
-		s.set(0,800);
+		s.set(0,800);	// it will replace the 0th element with 800
 		System.out.println(s.get(0));
 		
 		
 		System.out.println(s.firstElement());  //800
 		System.out.println(s.lastElement()); //400
 		
-		System.out.println(s.indexOf(300));
-		System.out.println(s.lastIndexOf(300));
+		System.out.println(s.indexOf(300));  // 2
+		System.out.println(s.lastIndexOf(300)); // 2
 		
 		Object arr[]=s.toArray();
 		System.out.println(arr[0]); //800
 		
 		Object a=s.clone();
 		System.out.println(a); //[800, 200, 300, 400]
-		
 		
 		
 	}
