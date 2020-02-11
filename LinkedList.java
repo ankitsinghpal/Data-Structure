@@ -1,3 +1,4 @@
+import java.util.*;
 public class LinkedList {
   
     Node head;
@@ -115,7 +116,23 @@ public class LinkedList {
             
         System.out.println(node.data);
     }
-    
+    int detectLoop() 
+	{ 
+		Node sp=head;
+		Node fp=head;
+		
+		for(;sp!=null && fp!=null && fp.next.next!=null;)
+		{
+		    sp=sp.next;
+		    fp=fp.next.next;
+		    if(sp==fp)
+		    {
+		        System.out.println("Loop Hai");
+		        return 1;
+		    }
+		}
+		return 0;
+	} 
     public static void main(String[] args) {
         LinkedList l=new LinkedList();
         l.insert(5);
@@ -131,9 +148,19 @@ public class LinkedList {
         l.show();
         
         l.showMid();
-         l.show();
+        l.show();
         l.showNthLast(3);
         
         l.showNth(5);
+        
+        LinkedList l1=new LinkedList();
+        l1.insertAtStart(100);
+        l1.insertAtStart(200);
+        l1.insertAtStart(300);
+        l1.insertAtStart(400);
+        l1.insertAtStart(500);
+        
+        l1.head.next.next.next.next = l1.head; 
+        l1.detectLoop();
     }
 }
