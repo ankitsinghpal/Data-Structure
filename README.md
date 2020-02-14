@@ -16,3 +16,14 @@ Data Structure Stores and organise the data in such a way that it could decrease
 8. Delete From specific index
 9. Reverse a LinkedList using recursion
 
+# Tree
+1. Insert
+2. Delete
+3. InOrder
+4. PreOrder
+5. PostOrder
+6. LevelOrder
+7. Search
+8. Find Max
+9. Find Min
+10. Height
