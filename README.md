@@ -12,3 +12,7 @@ Data Structure Stores and organise the data in such a way that it could decrease
 4. Show Nth
 5. Show Nth from last
 6. Detect Loop
+7. DeleteFromFirst ie. delete a head
+8. Delete From specific index
+9. Reverse a LinkedList using recursion
+
