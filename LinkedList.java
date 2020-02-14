@@ -133,6 +133,68 @@ public class LinkedList {
 		}
 		return 0;
 	} 
+	
+	void deleteFromStart()
+    {
+        if(head==null)
+        {
+            System.out.println("Empty Hai !");
+            return;
+        }
+        else
+        {
+            if(head!=null)
+                head=head.next;
+            else
+                head=null;
+                
+        }
+    }
+    
+    void deleteNode(int position) 
+    { 
+        // If linked list is empty 
+        if (head == null) 
+            return; 
+  
+        // Store head node 
+        Node temp = head; 
+  
+        // If head needs to be removed 
+        if (position == 0) 
+        { 
+            head = temp.next;   // Change head 
+            return; 
+        } 
+  
+        // Find previous node of the node to be deleted 
+        for (int i=0; temp!=null && i<position-1; i++) 
+            temp = temp.next; 
+  
+        // If position is more than number of ndoes 
+        if (temp == null || temp.next == null) 
+            return; 
+  
+        // Node temp->next is the node to be deleted 
+        // Store pointer to the next of node to be deleted 
+        Node next = temp.next.next; 
+  
+        temp.next = next;  // Unlink the deleted node from list 
+    }
+    
+    Node reverse(Node head)
+    {
+        
+        if(head==null || head.next==null)
+            return head;
+        
+        Node node=reverse(head.next);
+        head.next.next=head;
+        
+        head.next=null;
+        return node;
+        
+    }
     public static void main(String[] args) {
         LinkedList l=new LinkedList();
         l.insert(5);
@@ -162,5 +224,14 @@ public class LinkedList {
         
         l1.head.next.next.next.next = l1.head; 
         l1.detectLoop();
+        
+        l.deleteFromStart(); //deletes the head
+        l.show();
+        
+        l.deleteNode(4); //index position = starts from 0 to n-1
+        l.show();
+        
+        l.head=l.reverse(l.head); // RECURSIVE REVERSE
+        l.show();
     }
 }
