@@ -4,9 +4,9 @@ Data Structure Stores and organise the data in such a way that it could decrease
 
 LinkedList Topics
 1. Insertion 
-	    Normal Insertion
-	    Insert At Strat
-	    Insert at specific Index
+	   a. Normal Insertion
+	   b. Insert At Strat
+	   c. Insert at specific Index
 2. Show
 3. Show Mid
 4. Show Nth
