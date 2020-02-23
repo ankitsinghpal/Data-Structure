@@ -16,6 +16,10 @@ Data Structure Stores and organise the data in such a way that it could decrease
 8. Delete From specific index
 9. Reverse a LinkedList using recursion
 
+DoublyLinked List
+
+CircularLinkedList
+
 # Tree
 1. Insert
 2. Delete
