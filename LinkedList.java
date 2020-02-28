@@ -70,6 +70,59 @@ public class LinkedList {
       System.out.println();
     }
     
+    public boolean search(int key)
+    {
+        Node node=head;
+        boolean check;
+        
+        if(node==null)
+        {
+            System.out.println("Empty LinkedList !");
+        }
+        
+        check=false;
+        
+        while(node!=null && check==false)
+        {
+            /* compare each node if not present 
+               then move to next node */
+            if(node.data!=key) 
+                node=node.next;
+            else
+                check=true;
+        }
+        if(check)
+            return true;
+        else
+            return false;
+    }
+    
+    public int searchPosition(int index)
+    {
+        Node node=head;
+        boolean check;
+        
+        int pos=0;
+        if(node==null)
+        {
+            System.out.println("Empty LinkedList !");
+        }
+        
+        check=false;
+        
+        while(node!=null && check==false)
+        {
+            if(pos==index)
+            {
+                return node.data;
+            }
+            pos++;
+            node=node.next;
+            
+        }
+        return -1;
+        
+    }
     public void showMid()
     {
         Node sp=head;
@@ -121,7 +174,7 @@ public class LinkedList {
 		Node sp=head;
 		Node fp=head;
 		
-		for(;sp!=null && fp!=null && fp.next.next!=null;)
+		while(sp!=null && fp!=null && fp.next.next!=null)
 		{
 		    sp=sp.next;
 		    fp=fp.next.next;
@@ -182,6 +235,8 @@ public class LinkedList {
         temp.next = next;  // Unlink the deleted node from list 
     }
     
+    
+    
     Node reverse(Node head)
     {
         
@@ -197,6 +252,10 @@ public class LinkedList {
     }
     public static void main(String[] args) {
         LinkedList l=new LinkedList();
+        
+        /*===========================================*/
+        /*             INSERTION                     */
+        /*===========================================*/
         l.insert(5);
         l.insert(10);
         l.insert(15);
@@ -204,16 +263,45 @@ public class LinkedList {
         l.insert(25);
         
         l.insertAtStart(30);
-        l.show();
+        l.show();           // 30 5 10 15 20 25 
         
         l.insertAt(1,35);
-        l.show();
+        l.show();           // 30 35 5 10 15 20 25 
         
-        l.showMid();
-        l.show();
-        l.showNthLast(3);
+        l.showMid();        // 10
+        l.show();           // 30 35 5 10 15 20 25 
+        l.showNthLast(3);   // 15
         
-        l.showNth(5);
+        l.showNth(5);       // 15
+        
+        /*===========================================*/
+        /*             SEARCHING                     */
+        /*===========================================*/
+        // search with element
+        System.out.println(l.search(30));   // true
+        
+        // search with index
+        System.out.println(l.searchPosition(0));  // 30
+        
+        
+        /*===========================================*/
+        /*             DELETION                      */
+        /*===========================================*/
+        l.deleteFromStart(); //deletes the head
+        l.show();   // 35 5 10 15 20 25 
+        
+        l.deleteNode(4); //index position = starts from 0 to n-1
+        l.show();   // 35 5 10 15 25 
+        
+        
+        /*===========================================*/
+        /*                                           */
+        /*===========================================*/
+        l.head=l.reverse(l.head); // RECURSIVE REVERSE
+        l.show();  // 25 15 10 5 35
+        
+        
+        
         
         LinkedList l1=new LinkedList();
         l1.insertAtStart(100);
@@ -223,15 +311,6 @@ public class LinkedList {
         l1.insertAtStart(500);
         
         l1.head.next.next.next.next = l1.head; 
-        l1.detectLoop();
-        
-        l.deleteFromStart(); //deletes the head
-        l.show();
-        
-        l.deleteNode(4); //index position = starts from 0 to n-1
-        l.show();
-        
-        l.head=l.reverse(l.head); // RECURSIVE REVERSE
-        l.show();
+        l1.detectLoop();    // Loop Hai
     }
 }
