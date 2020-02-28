@@ -33,7 +33,7 @@ public class LinkedList {
     {
         Node node= new Node();
         node.data=data;
-        node.next=null;
+        //node.next=null;
         node.next=head;
         head=node;
     }
@@ -70,45 +70,41 @@ public class LinkedList {
       System.out.println();
     }
     
+    
     public boolean search(int key)
     {
         Node node=head;
-        boolean check;
+        boolean check=false;
         
         if(node==null)
         {
             System.out.println("Empty LinkedList !");
         }
         
-        check=false;
         
         while(node!=null && check==false)
         {
             /* compare each node if not present 
                then move to next node */
-            if(node.data!=key) 
-                node=node.next;
+            if(node.data==key) 
+                return true;
             else
-                check=true;
+                node=node.next;
         }
-        if(check)
-            return true;
-        else
-            return false;
+        
+        return false;
     }
     
     public int searchPosition(int index)
     {
         Node node=head;
-        boolean check;
+        boolean check=false;
         
         int pos=0;
         if(node==null)
         {
             System.out.println("Empty LinkedList !");
         }
-        
-        check=false;
         
         while(node!=null && check==false)
         {
@@ -148,7 +144,7 @@ public class LinkedList {
             node=node.next;
             length++;
         }
-        if(length<index)
+        if(index > length)
             return;
         
         node=head;
@@ -196,10 +192,7 @@ public class LinkedList {
         }
         else
         {
-            if(head!=null)
-                head=head.next;
-            else
-                head=null;
+            head=head.next;
                 
         }
     }
@@ -210,32 +203,28 @@ public class LinkedList {
         if (head == null) 
             return; 
   
-        // Store head node 
-        Node temp = head; 
+        Node node = head; 
   
         // If head needs to be removed 
         if (position == 0) 
         { 
-            head = temp.next;   // Change head 
+            head = node.next;   // Change head 
             return; 
         } 
   
         // Find previous node of the node to be deleted 
-        for (int i=0; temp!=null && i<position-1; i++) 
-            temp = temp.next; 
+        for (int i=0; node!=null && i<position-1; i++) 
+            node = node.next; 
   
         // If position is more than number of ndoes 
-        if (temp == null || temp.next == null) 
+        if (node == null || node.next == null) 
             return; 
   
-        // Node temp->next is the node to be deleted 
+        // Node node->next is the node to be deleted 
         // Store pointer to the next of node to be deleted 
-        Node next = temp.next.next; 
+        node.next  = node.next.next; 
   
-        temp.next = next;  // Unlink the deleted node from list 
     }
-    
-    
     
     Node reverse(Node head)
     {
@@ -278,7 +267,7 @@ public class LinkedList {
         /*             SEARCHING                     */
         /*===========================================*/
         // search with element
-        System.out.println(l.search(30));   // true
+        System.out.println(l.search(200));   // false
         
         // search with index
         System.out.println(l.searchPosition(0));  // 30
@@ -301,7 +290,7 @@ public class LinkedList {
         l.show();  // 25 15 10 5 35
         
         
-        
+        ///////////////////////////////////////////////
         
         LinkedList l1=new LinkedList();
         l1.insertAtStart(100);
@@ -312,5 +301,6 @@ public class LinkedList {
         
         l1.head.next.next.next.next = l1.head; 
         l1.detectLoop();    // Loop Hai
+        
     }
 }
