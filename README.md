@@ -15,6 +15,8 @@ Data Structure Stores and organise the data in such a way that it could decrease
 7. DeleteFromFirst ie. delete a head
 8. Delete From specific index
 9. Reverse a LinkedList using recursion
+10. Compare 2 LinkedList
+11. merge 2 sorted LinkedList
 
 # Sort LinkedList by using swap
 # DoublyLinked List
