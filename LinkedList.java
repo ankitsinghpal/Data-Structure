@@ -225,7 +225,28 @@ public class LinkedList {
         node.next  = node.next.next; 
   
     }
-    
+    public void deleteData(int key)
+    {
+        Node sp=null;
+        Node fp=head;
+        
+        if(fp==null) return;
+        
+        while(fp!=null)
+        {
+            if(fp.data==key)
+            {
+                sp.next=sp.next.next;
+                fp=fp.next;
+                
+            }
+            else
+            {
+                sp=fp;
+                fp=fp.next;
+            }
+        }
+    }
     Node reverse(Node head)
     {
         
@@ -309,6 +330,8 @@ public class LinkedList {
         l.deleteNode(4); //index position = starts from 0 to n-1
         l.show();   // 35 5 10 15 25 
         
+	l.deleteData(15);
+	l.show();   // 35 5 10 25
         
         /*===========================================*/
         /*                                           */
